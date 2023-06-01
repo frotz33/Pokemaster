@@ -35,6 +35,3 @@ export class GameTimerController {
     this.gameTimerModel.resetQuestionTimer();
   };
 }
-
-//handleNextQuestion, giveNextQueston, zmiana nazw
-//metody daj na private te co nie sa upubliczniane

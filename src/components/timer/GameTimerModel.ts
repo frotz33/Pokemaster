@@ -28,12 +28,9 @@ export class GameTimerModel {
   };
 
   startGameTimer = (gameTimer: HTMLElement, setTimerTextContent: () => void): void => {
-    const timer = setInterval(
-      () => {
-        this.gameTimerIntervalHandler(gameTimer, timer, setTimerTextContent);
-      },
-      1000 // ONE_SECOND
-    );
+    const timer = setInterval(() => {
+      this.gameTimerIntervalHandler(gameTimer, timer, setTimerTextContent);
+    }, 1000);
     this.currentGameTimerId = timer;
   };
 

@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Press+Start+2P&display=swap');
+
+// font-family: 'Press Start 2P', cursive;
+// font-family: 'Play', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: arial;
+}
+body {
+  background-color: #171525;
+}
+.game {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  height: 98vh;
+  background-color: #322d4e;
+  background-image: url('../img/gengar-background.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  background-blend-mode: darken;
+  &__heading {
+    padding-top: 40px;
+    font-size: 24px;
+    letter-spacing: 1px;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    transition: 0.3s;
+  }
+  &__ui {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0 0 0;
+    font-size: 14px;
+  }
+
+  &__answer-timer,
+  &__game-timer,
+  &__score {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    flex-basis: 33%;
+  }
+  &__answer-timer-span,
+  &__game-timer-span {
+    flex-basis: 100%;
+    padding-top: 10px;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+  }
+  &__score {
+    &-span {
+      flex-basis: 100%;
+      padding-top: 10px;
+      text-align: center;
+      font-family: 'Press Start 2P', cursive;
+      color: yellow;
+    }
+  }
+
+  &__start-screen {
+    width: 100%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    border: none;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    &-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      padding: 15px 20px;
+      transform: translate(-50%, -50%);
+      border: 0 solid;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 5px;
+      outline: 3px solid;
+      outline-color: rgba(255, 255, 255, 0.5);
+      outline-offset: 0px;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+      color: #fff;
+      background-color: rgba(255, 255, 255, 0.15);
+      text-shadow: none;
+      transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+      cursor: pointer;
+    }
+    &::backdrop {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+  &__end-screen {
+    width: 100%;
+    height: 30%;
+    top: 50%;
+    left: 50%;
+    border: none;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+
+    &-heading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: none;
+      font-size: 28px;
+      text-align: center;
+      color: #fff;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      &:active {
+        border: none;
+      }
+    }
+    &::backdrop {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+  &__picture-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 35vh;
+    margin: 0 0 10px;
+  }
+  &__picture {
+    height: 100%;
+  }
+  &__question {
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+    font-family: 'Play', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+  &__answers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+    width: 100%;
+    height: 20vh;
+    margin: 10px auto;
+  }
+  &__answer-container {
+    display: grid;
+    width: 40%;
+    height: 30%;
+    background-color: #8d86c9;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  &__answer {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: 'Play', sans-serif;
+    letter-spacing: 1px;
+    background: darken(#8d86c9, 1.5%);
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    //tutaj problem z ustawieniem fontu na span
+    &-text {
+      font-family: 'Play', sans-serif;
+      // font-size: 20px;
+    }
+    svg {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    rect {
+      fill: none;
+      stroke: darken(#242038, 6%);
+      stroke-width: 5;
+      stroke-dasharray: 422, 0;
+      transition: all 0.35s linear;
+    }
+  }
+}
+footer {
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1920px;
+  height: 2vh;
+  margin: 0 auto;
+  text-align: center;
+  color: #f2f2f2;
+  font-size: 12px;
+  background-color: darken(#242038, 6%);
+}
+
+@media (min-width: 360px) {
+  .game {
+    &__heading {
+      font-size: 30px;
+    }
+
+    &__picture-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 35vh;
+      margin: 20px 0 10px;
+    }
+    &__question {
+      font-size: 30px;
+    }
+    &__answer-container {
+      width: 45%;
+      height: 35%;
+      font-size: 20px;
+    }
+    &__answer-text {
+      font-size: 20px;
+    }
+  }
+}
+@media (min-width: 390px) {
+  .game {
+    height: 97vh;
+    &__heading {
+      padding-top: 40px;
+      font-size: 32px;
+    }
+    &__ui {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px 0 0 0;
+      font-size: 14px;
+    }
+
+    &__answer-timer,
+    &__game-timer,
+    &__score {
+      margin: 30px 0 15px;
+      font-size: 20px;
+    }
+    &__answer-timer-span,
+    &__game-timer-span {
+      font-size: 20px;
+    }
+    &__score {
+      &-span {
+        font-size: 20px;
+      }
+    }
+    &__picture-container {
+      height: 40vh;
+      margin: 0 0 10px;
+    }
+    &__question {
+      font-size: 34px;
+    }
+    &__answer-container {
+      width: 40%;
+      height: 33%;
+      font-size: 24px;
+    }
+  }
+  footer {
+    height: 3vh;
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) {
+  .game {
+    height: 96vh;
+    &__heading {
+      font-size: 40px;
+    }
+    &__answer-timer,
+    &__game-timer,
+    &__score {
+      margin: 50px 0 30px;
+      font-size: 28px;
+    }
+    &__answer-timer-span,
+    &__game-timer-span {
+      font-size: 28px;
+    }
+    &__score {
+      &-span {
+        font-size: 28px;
+      }
+    }
+    &__picture-container {
+      height: 40vh;
+      margin: 0 0 10px;
+    }
+    &__question {
+      font-size: 40px;
+    }
+    &__answers {
+      margin: 40px 0;
+    }
+    &__answer-container {
+      width: 45%;
+      height: 35%;
+      font-size: 30px;
+    }
+    &__answer-text {
+      font-size: 28px;
+    }
+  }
+  footer {
+    height: 4vh;
+    font-size: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  .game {
+    height: 97vh;
+    &__start-screen {
+      &-btn {
+        &:hover {
+          border: 3px solid;
+          box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.2);
+          outline-color: rgba(255, 255, 255, 0);
+          outline-offset: 15px;
+          text-shadow: 1px 1px 2px #427388;
+        }
+      }
+    }
+    &__picture-container {
+      height: 35vh;
+      margin: 0 0 10px;
+    }
+    &__picture {
+      transition: 0.2s linear;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    &__answers {
+      margin: 10px 0;
+    }
+    &__answer {
+      cursor: pointer;
+      transition: 0.3s;
+      svg {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      rect {
+        fill: none;
+        stroke: darken(#242038, 6%);
+        stroke-width: 5;
+        stroke-dasharray: 422, 0;
+        transition: all 0.35s linear;
+      }
+    }
+    &__answer:hover {
+      background: rgba(#8d86c9, 0);
+      letter-spacing: 2px;
+
+      rect {
+        stroke-width: 5;
+        stroke-dasharray: 0, 310;
+        stroke-dashoffset: 48;
+        transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+    }
+  }
+  footer {
+    height: 3vh;
+    font-size: 20px;
+  }
+}
+@media (min-width: 1200px) {
+  .game {
+    width: 100%;
+    height: 97vh;
+    background-color: #322d4e;
+    background-image: url('../img/gengar-background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    background-blend-mode: darken;
+    &__heading {
+      padding-top: 40px;
+      font-size: 60px;
+      letter-spacing: 1px;
+      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+      font-family: 'Press Start 2P', cursive;
+      text-transform: uppercase;
+      text-align: center;
+      color: #fff;
+      transition: 0.3s;
+      &:hover {
+        letter-spacing: 2px;
+      }
+    }
+    &__game-ui {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &__answer-timer,
+    &__game-timer,
+    &__score {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 33%;
+      font-size: 28px;
+    }
+    &__answer-timer {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &__game-timer {
+      left: 80%;
+      transform: translateX(-80%);
+    }
+    &__answer-timer-span,
+    &__game-timer-span {
+      font-size: 28px;
+    }
+    &__score {
+      &-span {
+        font-size: 28px;
+      }
+    }
+    &__score {
+      position: absolute;
+      left: 20%;
+      transform: translateX(-20%);
+    }
+    &__picture-container {
+      margin: 100px 0 0 0;
+    }
+    &__picture {
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    &__question {
+      width: 100%;
+      margin: 30px 0;
+      font-size: 40px;
+    }
+    &__answers {
+      width: 55%;
+      margin: 30px auto;
+    }
+  }
+}

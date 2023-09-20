@@ -15,7 +15,7 @@ Throughout this project, I gained valuable experience in:
 
 ## The Most Challenging Part
 
-One of the most challenging aspects of this project was implementing the private constructor.
+- Implementing the private constructor
 
 ## Features
 

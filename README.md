@@ -2,7 +2,7 @@
 
 **Pokemaster** is an interactive game that puts your Pokémon knowledge to the test. This project is constructed using HTML, SCSS, and TypeScript, and it leverages the PokeAPI to fetch Pokémon-related data and questions. Each question is presented in a multiple-choice format, challenging players to select the correct answer to advance.
 
-![Demo](https://frotz33.github.io/Pokemaster/)
+[click for demo](https://frotz33.github.io/Pokemaster/)
 
 ## What I Learned
 
